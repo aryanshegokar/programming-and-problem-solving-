@@ -1,0 +1,41 @@
+n = int(input("dimension: "))
+
+print("first matrix:")
+matrix1 = []
+for i in range(n):
+    row = []
+    parts = input().split()
+    for p in parts:
+        row.append(int(p))
+    matrix1.append(row)
+
+print("second matrix:")
+matrix2 = []
+for i in range(n):
+    row = []
+    parts = input().split()
+    for p in parts:
+        row.append(int(p))
+    matrix2.append(row)
+
+result = []
+for i in range(n):
+    row = []
+    for j in range(n):
+        row.append(0)
+    result.append(row)
+
+for i in range(n):
+    for j in range(n):
+        for k in range(n):
+            result[i][j] = result[i][j] + (matrix1[i][k] * matrix2[k][j])
+
+print("Resultant Matrix:")
+for i in range(n):
+    row_str = ""
+    for j in range(n):
+        if j == n - 1:
+            row_str = row_str + str(result[i][j])
+        else:
+            row_str = row_str + str(result[i][j]) + " "
+    print(row_str)
